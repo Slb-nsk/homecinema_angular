@@ -1,0 +1,67 @@
+<h3>Внесение в базу нового фильма/сериала</h3>
+
+
+<div>
+<form [formGroup]="createForm" novalidate (ngSubmit)="onSubmit()">
+
+<div class="form-group">
+  <label>Название на русском:</label>
+  <input class="form-control"  name="movieRussianName" formControlName="movieRussianName">
+  <div class="alert alert-danger"
+       *ngIf="createForm.controls['movieRussianName'].invalid && createForm.controls['movieRussianName'].touched">
+                            Не указано название на русском
+  </div>
+</div>
+
+<div class="form-group">
+  <label>Название на языке оригинала:</label>
+  <input class="form-control" name="movieOriginalName" formControlName="movieOriginalName">
+</div>
+
+<div class="form-group">
+  <label>Год выхода на экраны:</label>
+  <input class="form-control" name="movieYear" formControlName="movieYear">
+</div>
+
+
+<div class="form-group">
+  <label>Количество серий:</label>
+  <input class="form-control" name="seriesAmount" formControlName="seriesAmount">
+</div>
+
+<div formArrayName="country" name="country">
+  <div class="form-group" *ngFor="let c of createForm.controls['country'].controls; let i = index">
+  <label>Страна:</label>
+  <input class="form-control" formControlName="{{i}}" />
+  </div>
+  <div class="form-group">
+    <button type="button" class="btn btn-default" (click)="addCountry()">Добавить страну</button>
+  </div>
+</div>
+
+<div formArrayName="genre" name="genre">
+  <div class="form-group" *ngFor="let g of createForm.controls['genre'].controls; let i = index">
+  <label>Жанр:</label>
+  <input class="form-control" formControlName="{{i}}" />
+  </div>
+  <div class="form-group">
+    <button type="button" class="btn btn-default" (click)="addGenre()">Добавить жанр</button>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label>Описание:</label>
+  <input class="form-control" name="description" formControlName="description">
+</div>
+
+<div class="form-group">
+  <button type="submit" class="btn btn-primary" [disabled]="createForm.invalid">
+   Внести
+  </button>
+</div>
+
+</form>
+</div>
+
+<a routerLink="">На главную</a>

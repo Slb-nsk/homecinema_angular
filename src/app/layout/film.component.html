@@ -1,0 +1,21 @@
+<h3>{{movie.movieRussianName}}</h3>
+
+<p>Название фильма на русском: <b>"{{movie.movieRussianName}}"</b></p>
+<p>Оригинальное название фильма: <b>("{{movie.movieOriginalName}}")</b> </p>
+<p>Год выхода на экраны: <b>{{movie.movieYear}}</b> </p>
+<p>Страна производства: <span *ngFor="let country of movie.country">{{country}} ,</span></p>
+<p>Жанр:</p>
+<p>{{movie.description}}</p>
+
+<a routerLink="">На главную</a>
+
+<hr>
+
+<div class="form-group">
+  <button (click)="onClick()">
+  Обновить данные о "{{movie.movieRussianName}}"
+  </button>
+
+</div>
+
+

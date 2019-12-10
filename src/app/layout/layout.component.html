@@ -1,0 +1,10 @@
+<div>
+ <table *ngFor="let m of movies" style="width:25%; float:left;" frame="border">
+   <tr><td><b>"{{m.movieRussianName}}"</b> </td></tr>
+   <tr><td><b>("{{m.movieOriginalName}}")</b> </td></tr>
+   <tr><td><b>Год выхода на экран:</b> {{m.movieYear}} </td></tr>
+   <tr *ngIf="m.seriesAmount > 1"><td><b>Количество серий:</b> {{m.seriesAmount}}</td></tr>
+   <tr *ngIf="m.seriesAmount < 2"><td><a [routerLink]="['film', m.movieId]">Подробнее</a></td></tr>
+   <tr *ngIf="m.seriesAmount > 1"><td><a [routerLink]="['serial', m.movieId]">Подробнее</a></td></tr>
+ </table>
+</div>

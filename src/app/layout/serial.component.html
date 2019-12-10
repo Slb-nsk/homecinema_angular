@@ -1,0 +1,21 @@
+<h3>{{movie.movieRussianName}}</h3>
+
+<p>Название сериала на русском: <b>"{{movie.movieRussianName}}"</b></p>
+<p>Оригинальное название сериала: <b>("{{movie.movieOriginalName}}")</b> </p>
+<p>Год выхода на экраны: <b>{{movie.movieYear}}</b> </p>
+<p>Количество серий: {{movie.seriesAmount}}</p>
+<p>Страна производства: <span *ngFor="let country of movie.country">{{country}}, </span></p>
+<p>Жанр: <span *ngFor="let genre of movie.genre" display="inline-block">{{genre}}, </span>
+<p>{{movie.description}}</p>
+
+
+<a routerLink="">На главную</a>
+
+<hr>
+
+<div class="form-group">
+  <button (click)="onClick()">
+  Обновить данные о "{{movie.movieRussianName}}"
+  </button>
+
+</div>
