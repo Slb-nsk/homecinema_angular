@@ -4,12 +4,20 @@
 <p>Оригинальное название сериала: <b>("{{movie.movieOriginalName}}")</b> </p>
 <p>Год выхода на экраны: <b>{{movie.movieYear}}</b> </p>
 <p>Количество серий: {{movie.seriesAmount}}</p>
-<p>Страна производства: <span *ngFor="let country of movie.country">{{country}}, </span></p>
-<p>Жанр: <span *ngFor="let genre of movie.genre" display="inline-block">{{genre}}, </span>
+<p>Страна производства: <b>{{movie.countries}}</b></p>
+<p>Жанр: <b>{{movie.genres}}</b></p>
 <p>{{movie.description}}</p>
 
+<table><tr><td>
+<ng-container *ngFor="let seria of movie.sourceUrl; let i = index">
+    <table style="width:`9%; float:left;" frame="border">
+      <tr><td><a href="{{seria}}">Серия {{i+1}}</a></td></tr>
+    </table>
+</ng-container></td></tr></table>
 
-<a routerLink="">На главную</a>
+
+
+<p><a routerLink="">На главную</a></p>
 
 <hr>
 

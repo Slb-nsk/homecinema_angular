@@ -3,8 +3,8 @@
 <p>Название фильма на русском: <b>"{{movie.movieRussianName}}"</b></p>
 <p>Оригинальное название фильма: <b>("{{movie.movieOriginalName}}")</b> </p>
 <p>Год выхода на экраны: <b>{{movie.movieYear}}</b> </p>
-<p>Страна производства: <span *ngFor="let country of movie.country">{{country}} ,</span></p>
-<p>Жанр:</p>
+<p>Страна производства: <b>{{movie.countries}}</b></p>
+<p>Жанр: <b>{{movie.genres}}</b></p>
 <p>{{movie.description}}</p>
 
 <a routerLink="">На главную</a>
