@@ -9,8 +9,9 @@ export class Bigmovie {
                      public seriesAmount: number = 0,
                      public movieYear: number = 0,
                      public description: string = "",
-                     public country: string[] = [],
-                     public genre: string[] = []
+                     public countries: string[] = [],
+                     public genres: string[] = [],
+                     public imageUrl: string[] = []
                   )
 
 {}
