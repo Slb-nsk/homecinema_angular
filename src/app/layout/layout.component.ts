@@ -1,6 +1,6 @@
 import { Input, Component, OnInit } from '@angular/core';
 
-import { Movie } from '../movie.component';
+import { Movie } from './movie.component';
 import { HttpService } from '../http.service';
 
 @Component({
@@ -19,9 +19,9 @@ export class LayoutComponent implements OnInit {
       this.movies = data;},
 
       );
-    } 
+    }
 
-@Input() movies: Movie[];  
+@Input() movies: Movie[];
 
 }
 

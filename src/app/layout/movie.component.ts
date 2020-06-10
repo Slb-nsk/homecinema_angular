@@ -7,7 +7,8 @@ export class Movie {
                      public movieRussianName: string,
                      public movieOriginalName: string,
                      public seriesAmount: number,
-                     public movieYear: number
+                     public movieYear: number,
+                     public imageUrl: string
                   )
 
 {}

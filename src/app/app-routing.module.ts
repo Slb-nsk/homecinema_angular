@@ -6,9 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { FilmComponent } from './layout/film.component';
 import { SerialComponent } from './layout/serial.component';
-import { OkComponent } from './layout/ok.component';
-import { CreateComponent } from './layout/create.component';
-import { UpdateComponent } from './layout/update.component';
+import { OkComponent } from './editing/ok.component';
+import { CreateComponent } from './editing/create.component';
+import { UpdateComponent } from './editing/update.component';
 
 
 const appRoutes: Routes = [

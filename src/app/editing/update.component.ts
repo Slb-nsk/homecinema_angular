@@ -3,7 +3,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import { FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
 
-import { Bigmovie } from './bigmovie.component';
+import { Bigmovie } from '../layout/bigmovie.component';
 import { HttpService } from '../http.service'
 
 @Component({
@@ -14,7 +14,7 @@ import { HttpService } from '../http.service'
 export class UpdateComponent {
 
    private querySubscription: Subscription;
-   private movie: Bigmovie;
+   public movie: Bigmovie;
       updateForm: FormGroup;
 
    constructor(private route: ActivatedRoute,

@@ -15,38 +15,49 @@
 
     <div class="form-group">
       <label>Название на языке оригинала:</label>
-      <input class="form-control" name="movieOriginalName" formControlName="movieOriginalName">
+      <input class="form-control" formControlName="movieOriginalName">
     </div>
 
     <div class="form-group">
       <label>Год выхода на экраны:</label>
-      <input class="form-control" name="movieYear" formControlName="movieYear">
-    </div>
-
-
-    <div class="form-group">
-      <label>Количество серий:</label>
-      <input class="form-control" name="seriesAmount" formControlName="seriesAmount">
+      <input class="form-control" formControlName="movieYear">
     </div>
 
     <div class="form-group">
       <label>Страна:</label>
-      <input class="form-control" name="seriesAmount" formControlName="countries">
+      <input class="form-control" formControlName="countries">
     </div>
 
     <div class="form-group">
       <label>Жанр:</label>
-      <input class="form-control" name="seriesAmount" formControlName="genres">
+      <input class="form-control" formControlName="genres">
     </div>
 
     <div class="form-group">
       <label>Описание:</label>
-      <input class="form-control" name="description" formControlName="description">
+      <input class="form-control" formControlName="description">
     </div>
 
     <div class="form-group">
       <label>URL картинки:</label>
-      <input class="form-control" name="description" formControlName="imageUrl">
+      <input class="form-control" formControlName="imageUrl">
+    </div>
+
+    <div class="form-group">
+      <label>Количество серий:</label>
+      <input class="form-control" formControlName="seriesAmount">
+      <br>(нужно указать, чтобы можно было ставить ссылки на конкретные серии)
+    </div>
+    <button type="button" (click)="changeSeriesAmount()">Указать</button>
+
+    <div formArrayName="sourceUrl">
+      {{seriesAmount}}
+      <div *ngFor="let seria of [].constructor(seriesAmount);let i=index">
+        <label>
+          Серия {{i+1}}:
+          <input type="text" [formControlName]="i">
+        </label>
+      </div>
     </div>
 
     <div class="form-group">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService} from './http.service';
-import { Movie } from './movie.component';
+import { Movie } from './layout/movie.component';
 
 
 @Component({
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit{
     }
 
    }
-  ) */ 
+  ) */
  }
 
 
@@ -49,4 +49,3 @@ export class AppComponent implements OnInit{
   }
 
 }
-                    

@@ -2,7 +2,7 @@
 import { ActivatedRoute, Router} from '@angular/router';
 import { FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
 
-import { Bigmovie } from './bigmovie.component';
+import { Bigmovie } from '../layout/bigmovie.component';
 import { HttpService } from '../http.service'
 
 @Component({
@@ -14,14 +14,17 @@ import { HttpService } from '../http.service'
     templateUrl: './create.component.html',
 })
 
+
 export class CreateComponent {
   movieRussianName: string = '';
   movieOriginalName: string = '';
   seriesAmount: number = 1;
+  movieYear: number = 1;
   countries: string = '';
   genres: string = '';
+  description: string = '';
   imageUrl: string = '';
-
+  sourceUrl: string[] = ['',''];
   createForm: FormGroup;
 
 
@@ -37,10 +40,18 @@ export class CreateComponent {
          "description": new FormControl(),
          "imageUrl": new FormControl(),
          "countries": new FormControl(),
-         "genres": new FormControl()
+         "genres": new FormControl(),
+         "sourceUrl": new FormArray([
+                      new FormControl()
+                    ])
         });
 
     }
+
+        changeSeriesAmount(){
+            this.seriesAmount = this.createForm.value["seriesAmount"];
+        }
+
 
 
   onSubmit() {
