@@ -24,5 +24,4 @@ export class OkComponent {
 
   ngOnDestroy(){ this.querySubscription.unsubscribe();}
 
-
 }

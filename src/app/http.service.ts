@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Movie } from './layout/movie.component';
-import { Bigmovie } from './layout/bigmovie.component';
+import { Movie } from './entities/movie.component';
+import { Bigmovie } from './entities/bigmovie.component';
 
 @Injectable()
 export class HttpService{
@@ -22,9 +22,9 @@ export class HttpService{
 
    postData(movieRussianName: string, movieOriginalName: string,
             movieYear: number, seriesAmount: number, countries: string,
-            genres: string, description: string, imageUrl: string){
+            genres: string, description: string, imageUrl: string, sourceUrl: string[]){
    const body = {movieRussianName, movieOriginalName, movieYear, seriesAmount,
-                 countries, genres, description, imageUrl};
+                 countries, genres, description, imageUrl, sourceUrl};
    return this.http.post(this.myUrl + 'add', body);
    }
 

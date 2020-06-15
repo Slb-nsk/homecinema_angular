@@ -50,14 +50,8 @@
     </div>
     <button type="button" (click)="changeSeriesAmount()">Указать</button>
 
-    <div formArrayName="sourceUrl">
-      {{seriesAmount}}
-      <div *ngFor="let seria of [].constructor(seriesAmount);let i=index">
-        <label>
-          Серия {{i+1}}:
-          <input type="text" [formControlName]="i">
-        </label>
-      </div>
+    <div>
+      <add-url [seriesAmount]="seriesAmount"></add-url>
     </div>
 
     <div class="form-group">

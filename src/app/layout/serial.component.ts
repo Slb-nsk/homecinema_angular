@@ -1,7 +1,7 @@
 import { Input, Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router} from '@angular/router';
 
-import { Bigmovie } from './bigmovie.component';
+import { Bigmovie } from '../entities/bigmovie.component';
 import { HttpService } from '../http.service'
 
 @Component({

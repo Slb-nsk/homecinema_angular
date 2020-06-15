@@ -1,9 +1,10 @@
-﻿import { Input, Component} from '@angular/core';
+﻿import { Input, Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-import { FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Bigmovie } from '../layout/bigmovie.component';
-import { HttpService } from '../http.service'
+import { Bigmovie } from '../entities/bigmovie.component';
+import { HttpService } from '../http.service';
+import { AddUrlComponent } from './addurl.component';
 
 @Component({
     selector: 'create-app',
@@ -24,10 +25,13 @@ export class CreateComponent {
   genres: string = '';
   description: string = '';
   imageUrl: string = '';
-  sourceUrl: string[] = ['',''];
   createForm: FormGroup;
+  sourceUrl: string[];
 
 
+  @ViewChild(AddUrlComponent) private addUrl: AddUrlComponent;
+
+  @Input() movie: Bigmovie;
 
   constructor(private activateRoute: ActivatedRoute,
               private HttpService: HttpService,
@@ -41,11 +45,7 @@ export class CreateComponent {
          "imageUrl": new FormControl(),
          "countries": new FormControl(),
          "genres": new FormControl(),
-         "sourceUrl": new FormArray([
-                      new FormControl()
-                    ])
         });
-
     }
 
         changeSeriesAmount(){
@@ -62,15 +62,9 @@ export class CreateComponent {
                                 this.createForm.value.countries,
                                 this.createForm.value.genres,
                                 this.createForm.value.imageUrl,
-                                this.createForm.value.description).subscribe();
+                                this.createForm.value.description,
+                                this.addUrl.urlForm.value.sourceUrl).subscribe();
       this.router.navigate(['ok'], {queryParams:{'name': this.createForm.value.movieRussianName}});
     }
-
-
-
-@Input() movie: Bigmovie;
-
-
-
 
 }

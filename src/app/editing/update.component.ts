@@ -3,7 +3,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import { FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
 
-import { Bigmovie } from '../layout/bigmovie.component';
+import { Bigmovie } from '../entities/bigmovie.component';
 import { HttpService } from '../http.service'
 
 @Component({
@@ -79,10 +79,7 @@ console.log("delete movie with this ID:",this.movie.movieId);
       this.router.navigate(['ok'], {queryParams:{'name': this.updateForm.value.movieRussianName}});
     }
 
-
-
   ngOnDestroy() { this.querySubscription.unsubscribe();}
-
 
 }
 

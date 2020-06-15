@@ -3,13 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { EditingModule } from './editing/editing.module';
+
 import { LayoutComponent } from './layout/layout.component';
 import { FilmComponent } from './layout/film.component';
 import { SerialComponent } from './layout/serial.component';
 import { OkComponent } from './editing/ok.component';
 import { CreateComponent } from './editing/create.component';
 import { UpdateComponent } from './editing/update.component';
-
 
 const appRoutes: Routes = [
     { path: '', component: LayoutComponent},
@@ -21,8 +22,7 @@ const appRoutes: Routes = [
   ];
 
 @NgModule({
-  declarations: [LayoutComponent, FilmComponent, SerialComponent, OkComponent,
-                  CreateComponent, UpdateComponent ],
+  declarations: [LayoutComponent, FilmComponent, SerialComponent  ],
   imports: [RouterModule.forRoot(appRoutes), CommonModule, FormsModule, ReactiveFormsModule],
   exports: [RouterModule],
 })
