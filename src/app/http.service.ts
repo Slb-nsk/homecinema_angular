@@ -30,9 +30,9 @@ export class HttpService{
 
    putData(movieId: number, movieRussianName: string, movieOriginalName: string,
             movieYear: number, seriesAmount: number, countries: string,
-            genres: string, description: string, imageUrl: string){
+            genres: string, description: string, imageUrl: string, sourceUrl: string[]){
    const body = {movieRussianName, movieOriginalName, movieYear, seriesAmount,
-                 countries, genres, description, imageUrl};
+                 countries, genres, description, imageUrl, sourceUrl};
    return this.http.put(this.myUrl + movieId, body);
    }
 

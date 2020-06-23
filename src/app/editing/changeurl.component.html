@@ -1,0 +1,12 @@
+<div>
+  <div [formGroup]="urlForm">
+    <div formArrayName="sourceUrl">
+      <div *ngFor="let seria of urlForm.controls['sourceUrl']['controls']; let i = index">
+        <label>
+          Серия {{i+1}}
+          <input type="text" [formControlName]="i" placeholder=seria>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

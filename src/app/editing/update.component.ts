@@ -1,10 +1,11 @@
-﻿import { Input, Component } from '@angular/core';
+﻿import { Input, Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
-import { FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Bigmovie } from '../entities/bigmovie.component';
-import { HttpService } from '../http.service'
+import { HttpService } from '../http.service';
+import { ChangeUrlComponent } from './changeurl.component';
 
 @Component({
     selector: 'update-app',
@@ -16,6 +17,8 @@ export class UpdateComponent {
    private querySubscription: Subscription;
    public movie: Bigmovie;
       updateForm: FormGroup;
+
+  @ViewChild(ChangeUrlComponent) private changeUrl: ChangeUrlComponent;
 
    constructor(private route: ActivatedRoute,
                private HttpService: HttpService,
@@ -33,6 +36,7 @@ export class UpdateComponent {
                   this.movie.genres= queryParam['genres'];
                   this.movie.description= queryParam['description'];
                   this.movie.imageUrl= queryParam['imageUrl'];
+                  this.movie.sourceUrl= queryParam['sourceUrl'];
                 }
           )
 
@@ -66,6 +70,10 @@ console.log("delete movie with this ID:",this.movie.movieId);
 
    }
 
+    changeSeriesAmount(){
+      this.movie.seriesAmount = this.updateForm.value["seriesAmount"];
+    }
+
   onSubmit() {
       this.HttpService.putData(this.movie.movieId,
                                 this.updateForm.value.movieRussianName,
@@ -75,7 +83,8 @@ console.log("delete movie with this ID:",this.movie.movieId);
                                 this.updateForm.value.countries,
                                 this.updateForm.value.genres,
                                 this.updateForm.value.imageUrl,
-                                this.updateForm.value.description).subscribe();
+                                this.updateForm.value.description,
+                                this.changeUrl.urlForm.value.sourceUrl).subscribe();
       this.router.navigate(['ok'], {queryParams:{'name': this.updateForm.value.movieRussianName}});
     }
 

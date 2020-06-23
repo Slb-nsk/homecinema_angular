@@ -18,12 +18,6 @@
       <input class="form-control" formControlName="movieYear">
     </div>
 
-
-    <div class="form-group">
-      <label>Количество серий:</label>
-      <input class="form-control" formControlName="seriesAmount">
-    </div>
-
     <div class="form-group">
       <label>Страна:</label>
       <input class="form-control" formControlName="countries">
@@ -34,7 +28,6 @@
       <input class="form-control" formControlName="genres">
     </div>
 
-
     <div class="form-group">
       <label>Описание:</label>
       <input class="form-control" formControlName="description">
@@ -43,6 +36,18 @@
     <div class="form-group">
       <label>URL картинки:</label>
       <input class="form-control" formControlName="imageUrl">
+    </div>
+
+    <div class="form-group">
+      <label>Количество серий:</label>
+      <input class="form-control" formControlName="seriesAmount">
+      <br>(если число меняется, нужно нажать кнопку)
+    </div>
+    <button type="button" (click)="changeSeriesAmount()">Изменить</button>
+
+    <div>
+      <change-url [seriesAmount]="this.movie.seriesAmount" [sourceUrl]="this.movie.sourceUrl"></change-url>
+      aaa{{this.movie.sourceUrl}}
     </div>
 
     <div class="form-group">

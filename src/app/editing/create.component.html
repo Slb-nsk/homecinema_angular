@@ -6,7 +6,7 @@
 
     <div class="form-group">
       <label>Название на русском:</label>
-      <input class="form-control" name="movieRussianName" formControlName="movieRussianName">
+      <input class="form-control" formControlName="movieRussianName">
       <div class="alert alert-danger"
            *ngIf="createForm.controls['movieRussianName'].invalid && createForm.controls['movieRussianName'].touched">
         Не указано название на русском

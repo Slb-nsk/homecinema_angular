@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   ];
 
 @NgModule({
-  declarations: [LayoutComponent, FilmComponent, SerialComponent  ],
+  declarations: [LayoutComponent, FilmComponent, SerialComponent ],
   imports: [RouterModule.forRoot(appRoutes), CommonModule, FormsModule, ReactiveFormsModule],
   exports: [RouterModule],
 })
