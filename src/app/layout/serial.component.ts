@@ -39,7 +39,8 @@ export class SerialComponent implements OnInit {
                   'countries': this.movie.countries,
                   'genres': this.movie.genres,
                   'description': this.movie.description,
-                  'imageUrl': this.movie.imageUrl
+                  'imageUrl': this.movie.imageUrl,
+                  'sourceUrl': this.movie.sourceUrl
                   }}
                          );
     }

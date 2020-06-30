@@ -84,7 +84,7 @@ console.log("delete movie with this ID:",this.movie.movieId);
                                 this.updateForm.value.genres,
                                 this.updateForm.value.imageUrl,
                                 this.updateForm.value.description,
-                                this.changeUrl.urlForm.value.sourceUrl).subscribe();
+                                this.updateForm.value.description).subscribe();
       this.router.navigate(['ok'], {queryParams:{'name': this.updateForm.value.movieRussianName}});
     }
 

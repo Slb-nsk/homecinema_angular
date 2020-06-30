@@ -8,29 +8,38 @@ import { FormGroup, FormControl, FormArray} from '@angular/forms';
 
 export class ChangeUrlComponent implements OnChanges {
 
-  urlForm :FormGroup;
+  arr: FormArray;
+  urlForm: FormGroup;
   private amountOfSeries: number;
+  private control: FormControl;
 
   @Input() seriesAmount: number;
   @Input() sourceUrl: string[];
 
   constructor(){
-    this.urlForm = new FormGroup({
-      "sourceUrl" : new FormArray([])
-    });
-  }
+   this.urlForm = new FormGroup({
+   arr : new FormArray([])
+   });
+   }
 
   ngOnInit() {
-  console.log(this.seriesAmount, this.sourceUrl);
+  this.arr = new FormArray([]);
+    this.amountOfSeries = 0;  console.log(this.amountOfSeries);
+    do {
+      this.control = new FormControl(this.sourceUrl[this.amountOfSeries]);
+      this.arr.push(this.control);
+      this.amountOfSeries++;
+    }
+    while (this.amountOfSeries < this.seriesAmount);
+  this.arr.setValue(this.sourceUrl);
+  console.log(this.arr);
   }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
   this.amountOfSeries = 0;
-    this.urlForm = new FormGroup({
-      "sourceUrl" : new FormArray([])
-    });
+
   do {
-    (<FormArray>this.urlForm.controls["sourceUrl"]).push(new FormControl(''));
+
     this.amountOfSeries++;
   }
   while (this.amountOfSeries < this.seriesAmount);
