@@ -24,15 +24,13 @@ export class ChangeUrlComponent implements OnChanges {
 
   ngOnInit() {
   this.arr = new FormArray([]);
-    this.amountOfSeries = 0;  console.log(this.amountOfSeries);
+    this.amountOfSeries = 0;
     do {
       this.control = new FormControl(this.sourceUrl[this.amountOfSeries]);
       this.arr.push(this.control);
       this.amountOfSeries++;
     }
-    while (this.amountOfSeries < this.seriesAmount);
-  this.arr.setValue(this.sourceUrl);
-  console.log(this.arr);
+    while (this.amountOfSeries < this.seriesAmount);console.log(this.arr.value);
   }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {

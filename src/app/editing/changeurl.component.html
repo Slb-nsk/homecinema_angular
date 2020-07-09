@@ -1,11 +1,10 @@
 <div>
-  {{arr}}
   <div [formGroup]="urlForm">
     <div formArrayName="arr">
-      <div *ngFor="let seria of arr; let i = index">
+      <div *ngFor="let seria of arr.value; let i = index">
         <label>
           Серия {{i+1}}
-          <input type="text" [formControlName]="i" placeholder=seria>
+          <input type="text" [formControlName]="i" placeholder={{seria}}>
         </label>
       </div>
     </div>
