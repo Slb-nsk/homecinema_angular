@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChange } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChange, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray} from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormGroup, FormControl, FormArray} from '@angular/forms';
   templateUrl: './changeurl.component.html',
 })
 
-export class ChangeUrlComponent implements OnChanges {
+export class ChangeUrlComponent implements OnChanges, OnInit {
 
   arr: FormArray;
   urlForm: FormGroup;
@@ -16,32 +16,32 @@ export class ChangeUrlComponent implements OnChanges {
   @Input() seriesAmount: number;
   @Input() sourceUrl: string[];
 
-  constructor(){
+  constructor( ){
    this.urlForm = new FormGroup({
-   arr : new FormArray([])
-   });
+      arr : new FormArray([])
+     });
    }
 
   ngOnInit() {
-  this.arr = new FormArray([]);
-    this.amountOfSeries = 0;
-    do {
-      this.control = new FormControl(this.sourceUrl[this.amountOfSeries]);
-      this.arr.push(this.control);
-      this.amountOfSeries++;
+   this.arr = new FormArray([]);
+       this.amountOfSeries = 0;
+       do {
+         this.control = new FormControl(this.sourceUrl[this.amountOfSeries]);
+         this.arr.push(this.control);
+         this.amountOfSeries++;
+       }
+       while (this.amountOfSeries < this.seriesAmount);
+  }
+
+    ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+     this.arr = new FormArray([]);
+         this.amountOfSeries = 0;
+         do {
+           this.control = new FormControl(this.sourceUrl[this.amountOfSeries]);
+           this.arr.push(this.control);
+           this.amountOfSeries++;
+         }
+         while (this.amountOfSeries < this.seriesAmount);
     }
-    while (this.amountOfSeries < this.seriesAmount);console.log(this.arr.value);
-  }
-
-  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-  this.amountOfSeries = 0;
-
-  do {
-
-    this.amountOfSeries++;
-  }
-  while (this.amountOfSeries < this.seriesAmount);
-
-  }
 
 }
